@@ -19,23 +19,44 @@ const FLOOR_SCENES := {
 }
 
 func _ready() -> void:
+	print("[Game] Starting...")
+	
+	# Ensure a fallback background
+	var bg := ColorRect.new()
+	bg.name = "FallbackBG"
+	bg.color = Color(0.08, 0.06, 0.12, 1.0)
+	bg.size = Vector2(480, 270)
+	add_child(bg)
+	bg.move_to_front()
+	
 	_setup_ui()
-	var gm := get_node("/root/GameManager") as Node
-	gm.floor_changed.connect(_on_floor_changed)
-	_load_floor(gm.current_floor)
+	
+	var gm := get_node_or_null("/root/GameManager") as Node
+	if gm and gm.has_signal("floor_changed"):
+		gm.floor_changed.connect(_on_floor_changed)
+		_load_floor(gm.current_floor)
+		print("[Game] Loaded floor %d" % gm.current_floor)
+	else:
+		push_error("[Game] GameManager autoload not found!")
 
 func _setup_ui() -> void:
+	if not _ui_layer:
+		push_error("[Game] UILayer missing!")
+		return
+	
 	var spell_book_scene := load("res://scenes/core/spell_book_ui.tscn") as PackedScene
 	if spell_book_scene:
 		_spell_book_ui = spell_book_scene.instantiate()
 		_ui_layer.add_child(_spell_book_ui)
+		print("[Game] SpellBook UI loaded")
 	
 	var dialogue_scene := load("res://scenes/core/dialogue_ui.tscn") as PackedScene
 	if dialogue_scene:
 		_dialogue_ui = dialogue_scene.instantiate()
 		_ui_layer.add_child(_dialogue_ui)
+		print("[Game] Dialogue UI loaded")
 	
-	var dm := get_node("/root/DialogueManager") as Node
+	var dm := get_node_or_null("/root/DialogueManager") as Node
 	if dm and _dialogue_ui:
 		if dm.has_signal("dialogue_advanced"):
 			dm.dialogue_advanced.connect(_on_dialogue_line)
@@ -55,7 +76,15 @@ func _load_floor(level: int) -> void:
 			var scene: PackedScene = load(path)
 			if scene:
 				_current_floor_scene = scene.instantiate()
-				_floor_container.add_child(_current_floor_scene)
+				if _floor_container:
+					_floor_container.add_child(_current_floor_scene)
+				print("[Game] Floor %d loaded: %s" % [level, path])
+			else:
+				push_error("[Game] Failed to load scene: %s" % path)
+		else:
+			push_error("[Game] Scene not found: %s" % path)
+	else:
+		push_error("[Game] No scene for floor %d" % level)
 
 func _on_floor_changed(level: int) -> void:
 	_load_floor(level)
