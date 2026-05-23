@@ -72,7 +72,6 @@ func _spawn_player() -> void:
 	player.add_child(collision)
 	
 	var camera := Camera2D.new()
-	var camera := Camera2D.new()
 	camera.name = "Camera2D"
 	camera.enabled = true
 	player.add_child(camera)
