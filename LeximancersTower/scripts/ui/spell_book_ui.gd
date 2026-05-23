@@ -45,8 +45,8 @@ func _refresh_list() -> void:
 	
 	for entry in spells:
 		var btn := Button.new()
-		btn.text = entry.word
-		btn.pressed.connect(_on_spell_clicked.bind(entry.id))
+		btn.text = entry["word"]
+		btn.pressed.connect(_on_spell_clicked.bind(entry["id"]))
 		_spell_list.add_child(btn)
 		_spell_buttons.append(btn)
 

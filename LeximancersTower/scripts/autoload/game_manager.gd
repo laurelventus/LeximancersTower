@@ -3,13 +3,13 @@
 
 extends Node
 
-signal floor_changed(floor: int)
+signal floor_changed(level: int)
 signal game_completed
 signal game_phase_changed(phase: String)
 
 enum Phase { MAIN_MENU, EXPLORING, DIALOGUE, PUZZLE, SPELL_BOOK, PAUSED }
 
-var current_floor: int = 0  # 0 = not started, 1-7 = floors
+var current_floor: int = 0
 var game_phase: Phase = Phase.MAIN_MENU
 var game_time_seconds: float = 0.0
 var visited_floors: Array = []
@@ -27,19 +27,19 @@ func start_new_game() -> void:
 	visited_floors = [1]
 	game_phase = Phase.EXPLORING
 
-func set_floor(floor: int) -> void:
-	if floor != current_floor:
-		current_floor = floor
-		if not floor in visited_floors:
-			visited_floors.append(floor)
-		floor_changed.emit(floor)
+func set_floor(level: int) -> void:
+	if level != current_floor:
+		current_floor = level
+		if not level in visited_floors:
+			visited_floors.append(level)
+		floor_changed.emit(level)
 
 func set_phase(phase: Phase) -> void:
 	game_phase = phase
 	game_phase_changed.emit(Phase.keys()[phase])
 
-func is_floor_unlocked(floor: int) -> bool:
-	return floor <= current_floor or floor in visited_floors
+func is_floor_unlocked(level: int) -> bool:
+	return level <= current_floor or level in visited_floors
 
 func get_save_data() -> Dictionary:
 	return {

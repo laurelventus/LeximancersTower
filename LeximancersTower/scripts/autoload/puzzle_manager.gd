@@ -1,18 +1,18 @@
 ## PuzzleManager — Tracks puzzle states per floor.
-## Autoload: each puzzle has { id, floor, is_solved, attempts }.
+## Autoload: each puzzle has { id, level, is_solved, attempts }.
 
 extends Node
 
 signal puzzle_solved(puzzle_id: String)
 signal puzzle_attempted(puzzle_id: String, success: bool)
-signal floor_completed(floor: int)
+signal floor_completed(level: int)
 
-var _puzzles: Dictionary = {}  # id -> { floor, is_solved, attempts, dependencies }
+var _puzzles: Dictionary = {}
 
-func register_puzzle(puzzle_id: String, floor: int, dependencies: Array = []) -> void:
+func register_puzzle(puzzle_id: String, level: int, dependencies: Array = []) -> void:
 	if not _puzzles.has(puzzle_id):
 		_puzzles[puzzle_id] = {
-			"floor": floor,
+			"level": level,
 			"is_solved": false,
 			"attempts": 0,
 			"dependencies": dependencies.duplicate()
@@ -23,8 +23,6 @@ func submit_solution(puzzle_id: String, solution) -> bool:
 		return false
 	var puzzle = _puzzles[puzzle_id]
 	puzzle.attempts += 1
-	# Solution validation is handled by interactable objects via signals
-	# This method only records the outcome
 	return true
 
 func mark_solved(puzzle_id: String) -> void:
@@ -32,12 +30,12 @@ func mark_solved(puzzle_id: String) -> void:
 		return
 	_puzzles[puzzle_id].is_solved = true
 	puzzle_solved.emit(puzzle_id)
+	puzzle_attempted.emit(puzzle_id, true)
 	print("[PuzzleManager] Solved: %s" % puzzle_id)
-	# Check floor completion
-	var floor = _puzzles[puzzle_id].floor
-	if is_floor_complete(floor):
-		floor_completed.emit(floor)
-		print("[PuzzleManager] Floor %d complete!" % floor)
+	var level: int = _puzzles[puzzle_id].level
+	if is_floor_complete(level):
+		floor_completed.emit(level)
+		print("[PuzzleManager] Level %d complete!" % level)
 
 func is_solved(puzzle_id: String) -> bool:
 	return _puzzles.get(puzzle_id, {}).get("is_solved", false)
@@ -50,16 +48,16 @@ func is_unlocked(puzzle_id: String) -> bool:
 			return false
 	return true
 
-func get_unsolved_on_floor(floor: int) -> Array[String]:
-	var result: Array[String] = []
+func get_unsolved_on_floor(level: int) -> Array:
+	var result: Array = []
 	for id in _puzzles:
-		if _puzzles[id].floor == floor and not _puzzles[id].is_solved:
+		if _puzzles[id].level == level and not _puzzles[id].is_solved:
 			result.append(id)
 	return result
 
-func is_floor_complete(floor: int) -> bool:
+func is_floor_complete(level: int) -> bool:
 	for id in _puzzles:
-		if _puzzles[id].floor == floor and not _puzzles[id].is_solved:
+		if _puzzles[id].level == level and not _puzzles[id].is_solved:
 			return false
 	return true
 

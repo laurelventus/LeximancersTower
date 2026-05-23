@@ -7,7 +7,6 @@ extends Node2D
 var _current_floor_scene: Node = null
 var _spell_book_ui: Control = null
 var _dialogue_ui: Control = null
-var _inventory_ui: Control = null
 
 const FLOOR_SCENES := {
 	1: "res://scenes/levels/floor1_entrance.tscn",
@@ -26,19 +25,16 @@ func _ready() -> void:
 	_load_floor(gm.current_floor)
 
 func _setup_ui() -> void:
-	# Spell Book UI
 	var spell_book_scene := load("res://scenes/core/spell_book_ui.tscn") as PackedScene
 	if spell_book_scene:
 		_spell_book_ui = spell_book_scene.instantiate()
 		_ui_layer.add_child(_spell_book_ui)
 	
-	# Dialogue UI
 	var dialogue_scene := load("res://scenes/core/dialogue_ui.tscn") as PackedScene
 	if dialogue_scene:
 		_dialogue_ui = dialogue_scene.instantiate()
 		_ui_layer.add_child(_dialogue_ui)
 	
-	# Connect DialogueManager signals to dialogue UI
 	var dm := get_node("/root/DialogueManager") as Node
 	if dm and _dialogue_ui:
 		if dm.has_signal("dialogue_advanced"):
@@ -48,24 +44,23 @@ func _setup_ui() -> void:
 		if dm.has_signal("dialogue_started"):
 			dm.dialogue_started.connect(_on_dialogue_start)
 
-func _load_floor(floor: int) -> void:
+func _load_floor(level: int) -> void:
 	if _current_floor_scene:
 		_current_floor_scene.queue_free()
 		_current_floor_scene = null
 	
-	if FLOOR_SCENES.has(floor):
-		var path: String = FLOOR_SCENES[floor]
+	if FLOOR_SCENES.has(level):
+		var path: String = FLOOR_SCENES[level]
 		if ResourceLoader.exists(path):
 			var scene: PackedScene = load(path)
 			if scene:
 				_current_floor_scene = scene.instantiate()
 				_floor_container.add_child(_current_floor_scene)
 
-func _on_floor_changed(floor: int) -> void:
-	_load_floor(floor)
+func _on_floor_changed(level: int) -> void:
+	_load_floor(level)
 
-# Dialogue UI callbacks
-func _on_dialogue_start(npc_id: String) -> void:
+func _on_dialogue_start(_npc_id: String) -> void:
 	if _dialogue_ui:
 		_dialogue_ui.show()
 

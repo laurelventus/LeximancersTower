@@ -8,7 +8,7 @@ extends Node2D
 @onready var _torch: Node = $Torch
 @onready var _rune_door: Node = $RuneDoor
 @onready var _owly: Node = $Owly
-@onready var _spell_fragments: Node = $SpellFragments
+
 
 func _ready() -> void:
 	_setup_puzzles()
