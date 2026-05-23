@@ -1,0 +1,36 @@
+# Godot 4.x
+.godot/
+*.import
+*.translation
+export_presets.cfg
+
+# GDScript
+*.uid
+
+# Build / Export
+build/
+export/
+
+# Dependencies
+addons/
+
+# OS junk
+Desktop.ini
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.sln
+*.csproj
+*.user
+
+# Test artifacts
+tests/.gut_editor_config.json
+.gutconfig.json
+
+# Save data (local testing)
+user://
+*.save
+*.sav
