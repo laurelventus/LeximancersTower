@@ -7,7 +7,6 @@ extends CharacterBody2D
 var _facing_direction: Vector2 = Vector2.DOWN
 var _can_move: bool = true
 
-@onready var _sprite: Sprite2D = $Sprite2D
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _interact_area: Area2D = $InteractArea
 @onready var _interact_ray: RayCast2D = $InteractRay

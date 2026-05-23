@@ -73,6 +73,12 @@ func _spawn_player() -> void:
 	collision.shape = caps
 	player.add_child(collision)
 	
+	var camera := Camera2D.new()
+	camera.name = "Camera2D"
+	camera.enabled = true
+	camera.make_current()
+	player.add_child(camera)
+	
 	if _player_spawn:
 		player.global_position = _player_spawn.global_position
 	else:

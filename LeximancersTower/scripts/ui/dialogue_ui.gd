@@ -3,7 +3,6 @@ extends Control
 
 signal dialogue_finished
 
-@onready var _panel: Panel = $Panel
 @onready var _speaker_label: Label = $Panel/SpeakerLabel
 @onready var _text_label: RichTextLabel = $Panel/TextLabel
 @onready var _continue_hint: Label = $Panel/ContinueHint

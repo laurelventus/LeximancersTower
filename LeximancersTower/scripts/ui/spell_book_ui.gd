@@ -4,10 +4,8 @@ extends Control
 
 signal spell_selected(spell_id: String)
 
-@onready var _panel: Panel = $Panel
 @onready var _spell_list: VBoxContainer = $Panel/ScrollContainer/SpellList
 @onready var _close_btn: Button = $Panel/CloseBtn
-@onready var _title_label: Label = $Panel/TitleLabel
 
 var _visible: bool = false
 var _spell_buttons: Array = []

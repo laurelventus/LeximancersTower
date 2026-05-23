@@ -2,7 +2,6 @@
 ## Extends Area2D directly (not InteractableBase) for headless compatibility.
 extends Area2D
 
-signal interacted
 signal player_entered_range
 signal player_exited_range
 signal spell_success(spell_id: String)
@@ -16,7 +15,6 @@ signal spell_failure(spell_id: String)
 @export var puzzle_id: String = ""
 @export var destroy_on_success: bool = true
 
-var _used: bool = false
 var _solved: bool = false
 
 func _ready() -> void:
