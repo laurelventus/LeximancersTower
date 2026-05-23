@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/dialogue_ui.gd" id="1_4on2u"]
+
+[node name="root" type="Control" unique_id=359313126]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4on2u")
+
+[node name="Panel" type="Panel" parent="." unique_id=687538368]
+layout_mode = 0
+
+[node name="SpeakerLabel" type="Label" parent="Panel" unique_id=1208012094]
+layout_mode = 0
+
+[node name="TextLabel" type="RichTextLabel" parent="Panel" unique_id=999110755]
+layout_mode = 0
+offset_right = 1.0
+bbcode_enabled = true
+fit_content = true
+
+[node name="ContinueHint" type="Label" parent="Panel" unique_id=355796831]
+layout_mode = 0
+text = "[E] Continue"

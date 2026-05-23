@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/spell_book_ui.gd" id="1_f6d7m"]
+
+[node name="root" type="Control" unique_id=1004331880]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_f6d7m")
+
+[node name="Panel" type="Panel" parent="." unique_id=832199925]
+layout_mode = 0
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=1617428004]
+layout_mode = 0
+text = "Spell Book"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=915599227]
+layout_mode = 0
+
+[node name="SpellList" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=2050353586]
+layout_mode = 2
+
+[node name="CloseBtn" type="Button" parent="Panel" unique_id=90169956]
+layout_mode = 0
+text = "Close"

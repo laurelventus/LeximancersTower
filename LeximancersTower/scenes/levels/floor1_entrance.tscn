@@ -1,3 +1,41 @@
 [gd_scene format=3]
 
+[ext_resource type="Script" path="res://scripts/levels/floor1_entrance.gd" id="1_4nlps"]
+[ext_resource type="Script" path="res://scripts/interactables/interactable_base.gd" id="2_thksf"]
+[ext_resource type="Script" path="res://scripts/interactables/spell_target.gd" id="3_lrfce"]
+[ext_resource type="Script" path="res://scripts/puzzles/rune_door.gd" id="4_v1agq"]
+[ext_resource type="Script" path="res://scripts/npc/npc_owly.gd" id="5_5ft4v"]
+
 [node name="root" type="Node2D" unique_id=46338838]
+script = ExtResource("1_4nlps")
+
+[node name="Background" type="ColorRect" parent="." unique_id=70863970]
+color = Color(0, 0, 0, 1)
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=290058753]
+
+[node name="SpellFragments" type="Node2D" parent="." unique_id=788281613]
+
+[node name="PushStone" type="Area2D" parent="." unique_id=1247079242]
+script = ExtResource("2_thksf")
+
+[node name="Visual" type="ColorRect" parent="PushStone" unique_id=1942600676]
+color = Color(0, 0, 0, 1)
+
+[node name="Torch" type="Area2D" parent="." unique_id=1760994707]
+script = ExtResource("3_lrfce")
+
+[node name="Visual" type="ColorRect" parent="Torch" unique_id=1766219072]
+color = Color(0, 0, 0, 1)
+
+[node name="RuneDoor" type="Node2D" parent="." unique_id=1433565097]
+script = ExtResource("4_v1agq")
+
+[node name="Visual" type="ColorRect" parent="RuneDoor" unique_id=2072324623]
+color = Color(0, 0, 0, 1)
+
+[node name="Owly" type="Area2D" parent="." unique_id=98944535]
+script = ExtResource("5_5ft4v")
+
+[node name="Visual" type="ColorRect" parent="Owly" unique_id=284189959]
+color = Color(0, 0, 0, 1)

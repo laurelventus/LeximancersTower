@@ -1,5 +1,5 @@
 ## Player — Top-down 8-dir movement + interaction.
-class_name Player extends CharacterBody2D
+extends CharacterBody2D
 
 @export var move_speed: float = 80.0
 @export var interact_range: float = 32.0

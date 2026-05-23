@@ -1,6 +1,6 @@
 ## InteractableBase — Base class for all interactive objects.
-## Emits signal when interacted; derived classes override on_interact().
-class_name InteractableBase extends Area2D
+## NOTE: No class_name to avoid headless compilation issues.
+extends Area2D
 
 signal interacted
 signal player_entered_range
@@ -36,9 +36,9 @@ func _interact_effect() -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body.name == "Player":
 		player_entered_range.emit()
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
+	if body.name == "Player":
 		player_exited_range.emit()
