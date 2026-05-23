@@ -13,6 +13,7 @@ script = ExtResource("1_4nlps")
 color = Color(0, 0, 0, 1)
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=290058753]
+position = Vector2(240, 210)
 
 [node name="SpellFragments" type="Node2D" parent="." unique_id=788281613]
 
