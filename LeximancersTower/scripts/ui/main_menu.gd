@@ -5,7 +5,6 @@ extends Control
 @onready var _continue_btn: Button = $VBoxContainer/ContinueBtn
 @onready var _settings_btn: Button = $VBoxContainer/SettingsBtn
 @onready var _quit_btn: Button = $VBoxContainer/QuitBtn
-@onready var _title_label: Label = $TitleLabel
 
 
 func _ready() -> void:

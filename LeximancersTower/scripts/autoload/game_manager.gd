@@ -4,7 +4,6 @@
 extends Node
 
 signal floor_changed(level: int)
-signal game_completed
 signal game_phase_changed(phase: String)
 
 enum Phase { MAIN_MENU, EXPLORING, DIALOGUE, PUZZLE, SPELL_BOOK, PAUSED }

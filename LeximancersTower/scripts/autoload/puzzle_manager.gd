@@ -18,7 +18,7 @@ func register_puzzle(puzzle_id: String, level: int, dependencies: Array = []) ->
 			"dependencies": dependencies.duplicate()
 		}
 
-func submit_solution(puzzle_id: String, solution) -> bool:
+func submit_solution(puzzle_id: String, _solution) -> bool:
 	if not _puzzles.has(puzzle_id):
 		return false
 	var puzzle = _puzzles[puzzle_id]
