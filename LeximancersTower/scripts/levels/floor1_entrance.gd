@@ -7,8 +7,6 @@ extends Node2D
 @onready var _push_stone: Node = $PushStone
 @onready var _torch: Node = $Torch
 @onready var _rune_door: Node = $RuneDoor
-@onready var _owly: Node = $Owly
-
 
 func _ready() -> void:
 	_setup_puzzles()
@@ -74,9 +72,9 @@ func _spawn_player() -> void:
 	player.add_child(collision)
 	
 	var camera := Camera2D.new()
+	var camera := Camera2D.new()
 	camera.name = "Camera2D"
 	camera.enabled = true
-	camera.make_current()
 	player.add_child(camera)
 	
 	if _player_spawn:
@@ -85,6 +83,9 @@ func _spawn_player() -> void:
 		player.position = Vector2(240, 200)
 	
 	add_child(player)
+	
+	# make_current must be called after the camera is in the tree
+	camera.make_current()
 
 func _on_stone_pushed() -> void:
 	print("[1F] Stone pushed aside!")
