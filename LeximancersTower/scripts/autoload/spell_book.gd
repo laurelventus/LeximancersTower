@@ -10,7 +10,7 @@ signal spell_failed(spell_id: String)
 enum Category { ACTION, ELEMENT, NATURE, OBJECT, DIRECTION, MAGIC }
 
 var _spells: Dictionary = {}          # id -> { word, category, collected }
-var _spell_order: Array[String] = []  # preserved collection order
+var _spell_order: Array = []  # preserved collection order
 
 func add_spell(spell_id: String, word: String, category: int = Category.ACTION) -> void:
 	if _spells.has(spell_id):
@@ -36,15 +36,15 @@ func cast_spell(spell_id: String, target_path: String = "") -> bool:
 	print("[SpellBook] Cast: %s → %s" % [spell.word, target_path if target_path else "self"])
 	return true
 
-func get_all_spells() -> Array[Dictionary]:
-	var result: Array[Dictionary] = []
+func get_all_spells() -> Array:
+	var result: Array = []
 	for id in _spell_order:
 		if _spells.has(id):
 			result.append({"id": id, "word": _spells[id].word, "category": _spells[id].category})
 	return result
 
-func get_spells_by_category(category: int) -> Array[Dictionary]:
-	var result: Array[Dictionary] = []
+func get_spells_by_category(category: int) -> Array:
+	var result: Array = []
 	for id in _spell_order:
 		if _spells.has(id) and _spells[id].category == category:
 			result.append({"id": id, "word": _spells[id].word, "category": _spells[id].category})

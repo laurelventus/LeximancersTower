@@ -1,5 +1,5 @@
 ## PuzzleBase — Base class for all puzzle logic nodes.
-class_name PuzzleBase extends Node
+extends Node
 
 signal puzzle_activated
 signal puzzle_solved
@@ -7,7 +7,7 @@ signal puzzle_reset
 
 @export var puzzle_id: String = ""
 @export var floor_number: int = 1
-@export var dependencies: Array[String] = []
+@export var dependencies: Array = []
 
 func _ready() -> void:
 	if not puzzle_id.is_empty():

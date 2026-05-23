@@ -9,7 +9,7 @@ signal floor_completed(floor: int)
 
 var _puzzles: Dictionary = {}  # id -> { floor, is_solved, attempts, dependencies }
 
-func register_puzzle(puzzle_id: String, floor: int, dependencies: Array[String] = []) -> void:
+func register_puzzle(puzzle_id: String, floor: int, dependencies: Array = []) -> void:
 	if not _puzzles.has(puzzle_id):
 		_puzzles[puzzle_id] = {
 			"floor": floor,

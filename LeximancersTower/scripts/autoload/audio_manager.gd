@@ -3,7 +3,7 @@
 
 extends Node
 
-var _sfx_players: Array[AudioStreamPlayer] = []
+var _sfx_players: Array = []
 var _bgm_player: AudioStreamPlayer
 var _sfx_volume_db: float = 0.0
 var _bgm_volume_db: float = -6.0

@@ -3,10 +3,10 @@ extends Node2D
 
 signal door_opened
 
-@export var correct_order: Array[String] = ["spell_open", "spell_light", "spell_key"]
+@export var correct_order: Array = ["spell_open", "spell_light", "spell_key"]
 @export var puzzle_id: String = "floor1_main_door"
 
-var _inserted_runes: Array[String] = []
+var _inserted_runes: Array = []
 var _solved: bool = false
 
 func _ready() -> void:

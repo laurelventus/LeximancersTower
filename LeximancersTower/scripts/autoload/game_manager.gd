@@ -12,7 +12,7 @@ enum Phase { MAIN_MENU, EXPLORING, DIALOGUE, PUZZLE, SPELL_BOOK, PAUSED }
 var current_floor: int = 0  # 0 = not started, 1-7 = floors
 var game_phase: Phase = Phase.MAIN_MENU
 var game_time_seconds: float = 0.0
-var visited_floors: Array[int] = []
+var visited_floors: Array = []
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

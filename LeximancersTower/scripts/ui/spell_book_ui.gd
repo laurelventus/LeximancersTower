@@ -10,7 +10,7 @@ signal spell_selected(spell_id: String)
 @onready var _title_label: Label = $Panel/TitleLabel
 
 var _visible: bool = false
-var _spell_buttons: Array[Button] = []
+var _spell_buttons: Array = []
 var _current_target_path: String = ""
 
 func _ready() -> void:
