@@ -1,0 +1,36 @@
+{
+  "owly": {
+    "first_meeting": [
+      { "text": "Hoo... hoo... Another visitor?", "speaker": "Owly" },
+      { "text": "Welcome to the [color=#FFD700]Leximancer's Tower[/color], young one.", "speaker": "Owly" },
+      { "text": "I am [color=#FFA500]Owly[/color]. I've been waiting for someone like you.", "speaker": "Owly" },
+      { "text": "The master disappeared long ago. Only [color=#00FF00]words[/color] remain.", "speaker": "Owly" },
+      { "text": "The tower responds to [color=#FF6B6B]language[/color]. Collect the spell fragments, and the path will open.", "speaker": "Owly" },
+      { "text": "Let me guide you. Press [color=#87CEEB]E[/color] to interact with objects around you.", "speaker": "Owly" }
+    ],
+    "hint_door": [
+      { "text": "That door is sealed. It needs a [color=#FFD700]KEY[/color] and the right [color=#FF6B6B]spell[/color].", "speaker": "Owly" },
+      { "text": "Look around the hall. The master always left clues on the walls.", "speaker": "Owly" }
+    ],
+    "hint_torch": [
+      { "text": "The torch is cold. Try a spell that brings [color=#FFA500]light[/color] or [color=#FF4500]fire[/color].", "speaker": "Owly" },
+      { "text": "Have you found the [color=#FFD700]LIGHT[/color] fragment yet?", "speaker": "Owly" }
+    ]
+  },
+  "ghost_chef": {
+    "greeting": [
+      { "text": "Oh, a visitor! It's been so [color=#87CEEB]long[/color] since anyone came to my kitchen...", "speaker": "Ghost Chef" },
+      { "text": "I want to bake a [color=#FFB6C1]CAKE[/color], but I forgot the recipe. Can you help?", "speaker": "Ghost Chef" },
+      { "text": "I remember: [color=#FFD700]FIRST[/color] MILK, [color=#FFD700]THEN[/color] EGG, [color=#FFD700]FINALLY[/color] FLOUR.", "speaker": "Ghost Chef" },
+      { "text": "The ingredients are in the cupboards. Find them!", "speaker": "Ghost Chef" }
+    ],
+    "hint_cupboard": [
+      { "text": "The cupboards are labeled in [color=#87CEEB]English[/color]. Can you read them?", "speaker": "Ghost Chef" },
+      { "text": "I need [color=#FFD700]MILK[/color], [color=#FFD700]EGG[/color], and [color=#FFD700]FLOUR[/color]. The others are just for show.", "speaker": "Ghost Chef" }
+    ],
+    "success": [
+      { "text": "You did it! Here's the [color=#FFD700]stair key[/color] as promised.", "speaker": "Ghost Chef" },
+      { "text": "Good luck on the next floor, young [color=#00FF00]Leximancer[/color]!", "speaker": "Ghost Chef" }
+    ]
+  }
+}

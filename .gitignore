@@ -34,3 +34,10 @@ tests/.gut_editor_config.json
 user://
 *.save
 *.sav
+
+# MCP server (external project, not committed)
+godot-mcp/
+
+# Root npm artifacts
+package-lock.json
+node_modules/

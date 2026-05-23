@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/game.gd" id="1_2bsr5"]
+
+[node name="root" type="Node2D" unique_id=698351759]
+script = ExtResource("1_2bsr5")
+
+[node name="FloorContainer" type="Node2D" parent="." unique_id=756419080]
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=108071364]

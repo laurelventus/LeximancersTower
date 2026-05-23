@@ -1,0 +1,29 @@
+{
+  "floor1": {
+    "puzzle_push_stone": {
+      "id": "floor1_push_stone",
+      "type": "environment",
+      "description_en": "PUSH the stone to find the KEY",
+      "depends_on": [],
+      "solution": "Interact with the large stone"
+    },
+    "puzzle_light_torch": {
+      "id": "floor1_light_torch",
+      "type": "spell_cast",
+      "description_en": "LIGHT the TORCH to reveal the path",
+      "depends_on": [],
+      "required_spell": "spell_light",
+      "solution": "Cast LIGHT on the torch"
+    },
+    "puzzle_main_door": {
+      "id": "floor1_main_door",
+      "type": "sequence",
+      "description_en": "Arrange the runes in the correct order to open the door",
+      "depends_on": ["floor1_push_stone", "floor1_light_torch"],
+      "solution": ["spell_open", "spell_light", "spell_key"],
+      "clue_line1": "First, OPEN your mind",
+      "clue_line2": "Then, LIGHT the way",
+      "clue_line3": "Finally, the KEY shall appear"
+    }
+  }
+}

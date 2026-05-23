@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_nh5pa"]
+
+[node name="root" type="Control" unique_id=463673455]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nh5pa")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=499323261]
+layout_mode = 0
+text = "Leximancer's Tower"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=504025921]
+layout_mode = 0
+
+[node name="NewGameBtn" type="Button" parent="VBoxContainer" unique_id=2023281696]
+layout_mode = 2
+text = "New Game"
+
+[node name="ContinueBtn" type="Button" parent="VBoxContainer" unique_id=228178291]
+layout_mode = 2
+text = "Continue"
+
+[node name="SettingsBtn" type="Button" parent="VBoxContainer" unique_id=1688867757]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitBtn" type="Button" parent="VBoxContainer" unique_id=336197823]
+layout_mode = 2
+text = "Quit"
