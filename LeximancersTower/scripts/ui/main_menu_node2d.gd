@@ -63,7 +63,7 @@ func _add_button(text: String, rect: Rect2, callback: String) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var mouse_pos := event.position
+		var mouse_pos: Vector2 = event.position
 		for btn in _buttons:
 			var r: Rect2 = btn["rect"]
 			if r.has_point(mouse_pos):
