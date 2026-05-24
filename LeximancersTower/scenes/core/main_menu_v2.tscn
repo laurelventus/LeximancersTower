@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu_node2d.gd" id="1_8vn13"]
+
+[node name="root" type="Node2D" unique_id=1517693712]
+script = ExtResource("1_8vn13")
+
+[node name="Background" type="ColorRect" parent="." unique_id=39467132]
+color = Color(0, 0, 0, 1)

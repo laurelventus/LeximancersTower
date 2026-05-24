@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Leximancers Tower"
-run/main_scene="res://scenes/core/test_red.tscn"
+run/main_scene="res://scenes/core/main_menu_v2.tscn"
 config/features=PackedStringArray("4.6")
 
 [autoload]
