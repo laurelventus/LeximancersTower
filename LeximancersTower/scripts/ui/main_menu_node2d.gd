@@ -69,7 +69,6 @@ func _input(event: InputEvent) -> void:
 			if r.has_point(mouse_pos):
 				print("[MainMenu2D] Clicked: " + btn["callback"])
 				call(btn["callback"])
-				accept_event()
 				return
 
 func _on_new_game() -> void:
