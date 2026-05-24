@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[node name="root" type="Node2D" unique_id=2012114282]
+
+[node name="RedBG" type="ColorRect" parent="." unique_id=969030175]
+color = Color(0, 0, 0, 1)
